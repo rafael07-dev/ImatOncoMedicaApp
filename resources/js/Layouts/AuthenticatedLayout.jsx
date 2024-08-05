@@ -24,6 +24,13 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
                                 </NavLink>
+                                <NavLink href={route('equipos.index')} active={route().current('equipos')}>
+                                    Equipos
+                                </NavLink>
+
+                                <NavLink href={route('cronograma.index')} active={route().current('cronograma')}>
+                                    Cronograma
+                                </NavLink>
                             </div>
                         </div>
 
@@ -119,7 +126,7 @@ export default function Authenticated({ user, header, children }) {
                 </header>
             )}
 
-            <main>{children}</main>
+            <main className='flex justify-center'>{children}</main>
         </div>
     );
 }
