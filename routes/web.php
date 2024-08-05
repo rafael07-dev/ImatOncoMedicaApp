@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EquipoController;
+use App\Http\Controllers\CronogramaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,6 +27,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('equipos', EquipoController::class)
+    ->only(['index', 'store'])
+    ->middleware(['auth', 'verified']);
+
+    Route::resource('cronograma', CronogramaController::class)
     ->only(['index', 'store'])
     ->middleware(['auth', 'verified']);
 
